@@ -49,6 +49,10 @@ class ToDoViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    func some()
+    {
+    print("thing is:")
+    }
     
 
 }
