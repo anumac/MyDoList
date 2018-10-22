@@ -9,7 +9,7 @@
 import UIKit
 
 class ToDoViewController: UITableViewController {
-  let itemArray = ["call mondisory", "second", "third"]
+  var itemArray = ["call mondisory", "second", "third"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +51,35 @@ class ToDoViewController: UITableViewController {
     }
     
     
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Do", message: "", preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Add New Do", style: .default) { (alertAction) in
+            if let newItem = textField.text {
+                self.itemArray.append(newItem)
+                self.tableView.reloadData()
+        }
+        else
+            {
+                print("No item added")
+            }
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "add new item"
+             textField = alertTextField
+            }
+            
+       
+       
+        alert.addAction(alertAction)
+        present(alert, animated: true , completion: nil)
+        
+        
+        
+    }
 
+    
+    
 }
 
